@@ -1,5 +1,10 @@
 // let create a function to get the computer choices.
 
+/* I can't get this function (getComputerChoice) with switch, to:
+-create a continue loops if the "ValidInput" is false, 
+-Coverte the choice toLowerCase.
+- And Most importantly I don't know why.
+(What I mean: is I can't make the playerChoice function works for the getComputerChoice function(with switch))
 function getComputerChoice() {
     random = Math.floor(Math.random() * 3) + 1;
     
@@ -15,13 +20,13 @@ function getComputerChoice() {
             break;
     }
     return computer;
-}
-/*const options = ["rock", "paper", "scissors"]
+}*/
+const options = ["rock", "paper", "scissors"]
 
 function getComputerChoice(){
-    const choice = options[Math.floor(Math.random() * options.length)];
-    return choice;
-}*/
+    const choices = options[Math.floor(Math.random() * options.length)];
+    return choices;
+}
 
 function checkgame(playerSelection, computerSelection) {
 
@@ -40,6 +45,8 @@ function checkgame(playerSelection, computerSelection) {
     }
 }
 
+
+
 function playerRound(playerSelection, computerSelection){
     const result = checkgame(playerSelection, computerSelection);
     if(result == "Tie"){
@@ -53,12 +60,25 @@ function playerRound(playerSelection, computerSelection){
     }
 }
 
-
+function playerChoice(){
+    let validInput = false;
+    while(validInput == false){
+        const choice = prompt("Rock, Paper and Scissors...")
+        if(choice == null){
+            continue;
+        }
+        const choiceInLowerCase = choice.toLowerCase();
+        if(random.includes(choiceInLowerCase)){
+            validInput == true;
+            return choiceInLowerCase;
+        }
+    }
+}
 
 
 function game(){
     for (let i = 0; i < 5; i++) {
-        const playerSelection = "rock";
+        const playerSelection = playerChoice();
         const computerSelection = getComputerChoice();
         console.log(playerRound(playerSelection,computerSelection));
         
