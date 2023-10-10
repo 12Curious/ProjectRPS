@@ -68,7 +68,7 @@ function playerChoice(){
             continue;
         }
         const choiceInLowerCase = choice.toLowerCase();
-        if(random.includes(choiceInLowerCase)){
+        if(options.includes(choiceInLowerCase)){
             validInput == true;
             return choiceInLowerCase;
         }
