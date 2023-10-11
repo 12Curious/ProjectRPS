@@ -60,17 +60,22 @@ function playerRound(playerSelection, computerSelection){
     }
 }
 
+
 function playerChoice(){
     let validInput = false;
     while(validInput == false){
         const choice = prompt("Rock, Paper and Scissors...")
         if(choice == null){
             continue;
+            // This part of the  function ensure that everytime 
+            //the Input is false, to repeat the process.
         }
         const choiceInLowerCase = choice.toLowerCase();
         if(options.includes(choiceInLowerCase)){
             validInput == true;
             return choiceInLowerCase;
+            // This part ensure that the Input are all transfered in lowerCase,
+            // and verify that the Input is conforme to the existant choice we have.
         }
     }
 }
